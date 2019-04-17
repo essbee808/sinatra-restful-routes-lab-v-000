@@ -41,14 +41,6 @@ class ApplicationController < Sinatra::Base
   end
 
   delete "/recipes/:id/delete" do
-    @articles = Article.all
-    @articles.select do |el|
-      if el.id == params[:id].to_i
-        Article.destroy(el.id)
-      end
-    end
-    @articles = Article.all
-
     @recipes = Recipe.all
     @recipes.select do |el|
       if el.id == params[:id].to_i
