@@ -48,11 +48,14 @@ class ApplicationController < Sinatra::Base
       end
     end
     @articles = Article.all
+    
     @recipes = Recipe.all
     @recipes.select do |el|
-      if el.id == params[:id]
-    @recipe = Recipe.find_by_id(params[:id])
-    @recipe.destroy
+      if el.id == params[:id].to_i
+        Recipe.destroy(el.id)
+      end
+    end
+    @recipes = Recipe.all
     redirect to "/recipes"
   end
 end
