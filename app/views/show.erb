@@ -2,11 +2,6 @@
 <%= @recipe.ingredients %>
 <%= @recipe.cook_time %>
 
-<form method="POST" action="/recipes/<%= @recipe.id %>/edit">
-  <input id="hidden" type="hidden" name="_method" value="patch">
-  <input type="submit" value="edit">
-</form>
-
 <form method="POST" action="/recipes/<%= @recipe.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="delete">
